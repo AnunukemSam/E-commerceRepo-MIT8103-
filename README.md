@@ -32,7 +32,7 @@ The individual folders contain code, evidence and documentation. The lab screens
 
 ### Repository access
 
-**Attention:** The original coursework PDF specifies a **private** GitHub repository accessible to the assessor. This repository was public during portfolio development. Confirm assessor access and adjust visibility appropriately before final submission; do not assume public visibility is required. No visibility change has been made automatically.
+**Public repository confirmed.** The lecturer has since updated the initial course brief: the GitHub portfolio should be **public**, so the assessor can open it directly. The repository is currently public. The older PDF's private-repository wording is superseded by this later instruction, as reported by the student.
 
 ## Integrity and safety
 
