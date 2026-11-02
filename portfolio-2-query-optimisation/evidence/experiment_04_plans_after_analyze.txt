@@ -1,0 +1,67 @@
+# Experiment 04: Post-ANALYZE EXPLAIN output
+
+These are the PostgreSQL 18 EXPLAIN (ANALYZE, BUFFERS) plan lines supplied by the student after executing ANALYZE in electronics_store_db. Preserved as text evidence; not a screenshot.
+
+## Query 1 — Customer order history
+
+```text
+Sort  (cost=4.17..4.18 rows=2 width=84) (actual time=0.076..0.079 rows=2.00 loops=1)
+  Sort Key: o.order_date DESC, o.order_id, p.product_name
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Nested Loop  (cost=0.00..4.16 rows=2 width=84) (actual time=0.049..0.056 rows=2.00 loops=1)
+        Join Filter: (oi.product_id = p.product_id)
+        Rows Removed by Join Filter: 1
+        Buffers: shared hit=4
+        ->  Nested Loop  (cost=0.00..3.08 rows=2 width=43) (actual time=0.032..0.036 rows=2.00 loops=1)
+              Join Filter: (o.order_id = oi.order_id)
+              Buffers: shared hit=3
+              ->  Nested Loop  (cost=0.00..2.03 rows=1 width=29) (actual time=0.026..0.028 rows=1.00 loops=1)
+                    Join Filter: (c.customer_id = o.customer_id)
+                    Buffers: shared hit=2
+                    ->  Seq Scan on customers c  (cost=0.00..1.01 rows=1 width=13) (actual time=0.012..0.013 rows=1.00 loops=1)
+                          Buffers: shared hit=1
+                    ->  Seq Scan on orders o  (cost=0.00..1.01 rows=1 width=24) (actual time=0.005..0.005 rows=1.00 loops=1)
+                          Buffers: shared hit=1
+              ->  Seq Scan on order_items oi  (cost=0.00..1.02 rows=2 width=18) (actual time=0.004..0.005 rows=2.00 loops=1)
+                    Buffers: shared hit=1
+        ->  Materialize  (cost=0.00..1.03 rows=2 width=17) (actual time=0.004..0.005 rows=1.50 loops=2)
+              Storage: Memory  Maximum Storage: 17kB
+              Buffers: shared hit=1
+              ->  Seq Scan on products p  (cost=0.00..1.02 rows=2 width=17) (actual time=0.004..0.004 rows=2.00 loops=1)
+                    Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=53
+Planning Time: 0.850 ms
+Execution Time: 0.123 ms
+```
+
+## Query 3 — Inventory analysis
+
+```text
+Sort  (cost=2.16..2.17 rows=2 width=62) (actual time=0.060..0.062 rows=2.00 loops=1)
+  Sort Key: (COALESCE(sum((p.price * (p.stock_quantity)::numeric)), '0'::numeric)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=2
+  ->  GroupAggregate  (cost=2.09..2.15 rows=2 width=62) (actual time=0.052..0.055 rows=2.00 loops=1)
+        Group Key: c.category_name
+        Buffers: shared hit=2
+        ->  Sort  (cost=2.09..2.10 rows=2 width=28) (actual time=0.039..0.041 rows=2.00 loops=1)
+              Sort Key: c.category_name
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=2
+              ->  Hash Right Join  (cost=1.04..2.08 rows=2 width=28) (actual time=0.023..0.029 rows=2.00 loops=1)
+                    Hash Cond: (p.category_id = c.category_id)
+                    Buffers: shared hit=2
+                    ->  Seq Scan on products p  (cost=0.00..1.02 rows=2 width=18) (actual time=0.003..0.004 rows=2.00 loops=1)
+                          Buffers: shared hit=1
+                    ->  Hash  (cost=1.02..1.02 rows=2 width=14) (actual time=0.013..0.013 rows=2.00 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                          Buffers: shared hit=1
+                          ->  Seq Scan on categories c  (cost=0.00..1.02 rows=2 width=14) (actual time=0.008..0.009 rows=2.00 loops=1)
+                                Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=30
+Planning Time: 0.250 ms
+Execution Time: 0.101 ms
+```
