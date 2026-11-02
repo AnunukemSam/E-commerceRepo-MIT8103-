@@ -17,7 +17,7 @@ This portfolio covers SQL business reporting, query plan interpretation, Postgre
 
 ## Evidence status
 
-The SQL scripts and analyses are in GitHub; actual pgAdmin screenshots and any separately saved raw benchmark outputs still need to be reviewed and uploaded under `evidence/`.
+The SQL scripts and analyses are in GitHub. Nine authentic pgAdmin screenshots (baseline, statistics refresh, price-index plans and four business-query results) are now uploaded under `evidence/`. JOIN/aggregation execution-plan screenshots and the raw repeated benchmark logs are still pending.
 
 ### Checklist
 
@@ -26,8 +26,8 @@ The SQL scripts and analyses are in GitHub; actual pgAdmin screenshots and any s
 - [x] 20,000-product dataset, baseline, price-index plan and repeated timing comparison (measurements supplied by student).
 - [x] Four SQL business reports returned expected results.
 - [x] Two JOIN/aggregation execution plans interpreted and documented.
-- [ ] Upload genuine baseline and indexed benchmark screenshots.
-- [ ] Upload genuine four-query result screenshots.
+- [x] Upload genuine baseline and indexed benchmark screenshots.
+- [x] Upload genuine four-query result screenshots.
 - [ ] Upload genuine Q1 and Q3 execution-plan screenshots.
 - [ ] Add the exact SQL used for synthetic data generation and all repeat-test evidence.
 - [ ] Review statements against screenshots, complete own reflection and prepare final Portfolio 2 summary.
