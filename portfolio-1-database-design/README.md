@@ -14,12 +14,12 @@ Design, implement and validate the PostgreSQL relational schema for a simulated 
 - `sql/03_sample_order_fresh_database.sql` — optional extra pending order on **new/fresh** demo database, not on current populated DB.
 - `sql/04_validation_queries.sql` — read-only queries appropriate for your **current** database.
 - `sql/05_constraint_tests_manual.sql` — commented-out intentional error tests; enable and run individually.
-- `sql/schema_from_live_db.sql` — **to be created on your Mac** by `pg_dump` from your real implementation.
-- `evidence/` — **to be filled by you** with genuine screenshots.
+- `sql/schema_from_live_db.sql` — the live schema export already committed, documenting the implemented objects.
+- `evidence/Screenshots/` — six original student-supplied screenshots, indexed in `evidence/README.md`.
 
-## 1. Export your actual implemented schema (most important)
+## 1. Live schema export (already completed)
 
-From Terminal on the Mac, navigate into this folder after unzipping the package, then run:
+The live schema has been exported and committed. The original command for reproducing the export is:
 
 ```bash
 pg_dump --schema-only --no-owner --no-privileges \
@@ -43,9 +43,9 @@ Or open the same file using pgAdmin Query Tool. Confirm the results, then add yo
 
 **Do not re-run schema creation or the fresh-demo order script against your existing populated database.** You have already inserted the sample order during the assignment work.
 
-## 3. Capture the ERD
+## 3. ER diagram source
 
-Open `diagrams/electronics_store_erd.mmd` in a Mermaid-compatible preview/editor, or copy the contents into a fenced `mermaid` block in a Markdown viewer that supports it. Export a screenshot/PNG for the evidence folder.
+Open `diagrams/electronics_store_erd.mmd` in a Mermaid-compatible preview/editor, or copy the contents into a fenced `mermaid` block in a Markdown viewer that supports it. The diagram source is already present in the repository; the existing screenshots and evidence index should be reviewed before submission.
 
 ## 4. Verify portfolio completion
 
@@ -54,10 +54,10 @@ Open `diagrams/electronics_store_erd.mmd` in a Mermaid-compatible preview/editor
 - [x] Normalisation to 3NF explained.
 - [x] PostgreSQL and pgAdmin installed; all six tables created and tested (per student's reported work).
 - [x] Fictional sample order, payment and JOIN validation completed (per student's reported work).
-- [ ] Live schema exported and checked against approved design.
-- [ ] Genuine evidence screenshots added and referenced in report.
-- [ ] Personal reflection completed in student's own words.
-- [ ] Verified files committed to the existing public GitHub repository.
+- [x] Live schema exported and committed; final student review advised.
+- [x] Six genuine evidence screenshots included and indexed.
+- [ ] Personal reflection to be completed in student's own words.
+- [x] Files committed to the existing public GitHub repository.
 
 ## 5. GitHub
 
