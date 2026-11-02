@@ -95,9 +95,27 @@ SELECT current_database(); -- Expect electronics_store_db
 ANALYZE;
 ```
 
-Then rerun the same `EXPLAIN (ANALYZE, BUFFERS)` statements and compare estimated rows. Preserve the original plans as **before statistics refresh** evidence. Any post-ANALYZE results need to be captured separately; none are claimed here.
+The student subsequently executed `ANALYZE;` and supplied the **post-ANALYZE** execution plans. Preserve the original output as *before statistics refresh* and the new output as *after statistics refresh*. The complete post-ANALYZE text is in [the raw plan evidence](../evidence/experiment_04_plans_after_analyze.txt).
 
-PostgreSQL estimates need not be exact, and neither plan demonstrates a significant performance issue: query execution times were only 0.160 ms and 0.129 ms.
+### Actual before-versus-after results
+
+| Observation | Query 1 before | Query 1 after | Query 3 before | Query 3 after |
+|---|---:|---:|---:|---:|
+| Estimated output rows | 1,360 | 2 | 280 | 2 |
+| Actual output rows | 2 | 2 | 2 | 2 |
+| Execution time (ms) | 0.160 | 0.123 | 0.129 | 0.101 |
+| Planning time (ms) | 0.379 | 0.850 | 0.223 | 0.250 |
+| Execution shared buffer hits | 4 | 4 | 2 | 2 |
+| Join strategy | Three Hash Joins | Three Nested Loops | Hash Left Join | Hash Right Join |
+| Grouping strategy | Not applicable | Not applicable | HashAggregate | Sort + GroupAggregate |
+
+**Query 1 after ANALYZE:** PostgreSQL's final cardinality estimate was exactly 2, matching the 2 order-item rows returned. The new plan uses three nested-loop joins, sequential scans of the very small source tables and `Materialize` to cache the products input for repeat scanning (`Maximum Storage: 17kB`). `Rows Removed by Join Filter: 1` counts a nonmatching join candidate, not a deleted record. The final Sort used quicksort with 25kB memory. Planning took 0.850 ms and execution 0.123 ms.
+
+**Query 3 after ANALYZE:** The estimated output groups decreased from 280 to 2, matching the actual 2 groups. The physical plan uses a Hash Right Join with categories on its preserved side, which is semantically equivalent to the original left-join requirement. It sorts the joined rows by `c.category_name`, applies `GroupAggregate`, and sorts the final category summaries by calculated inventory value descending. Both Sort nodes used quicksort with 25kB memory in the recorded plan. Planning took 0.250 ms and execution 0.101 ms.
+
+**Interpretation:** Refreshing statistics dramatically improved estimated output cardinality and coincided with different join and aggregation choices. These small differences in sub-millisecond execution times do **not** establish a causal or practically significant speed improvement: they are individual runs that may vary with caching and runtime conditions. The robust result is the planner-estimate correction and plan change, not timing acceleration.
+
+PostgreSQL estimates need not always be exact, and neither plan demonstrates a serious query performance issue.
 
 ## 4. Four business query result summary
 
