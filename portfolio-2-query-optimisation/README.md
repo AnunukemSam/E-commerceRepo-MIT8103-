@@ -19,7 +19,7 @@
 
 ## Databases
 
-`electronics_store_db` is the primary electronics store case study; leave its pending order unchanged until Portfolio 3's transaction exercises.
+`electronics_store_db` is the primary electronics store case study. Portfolio 3 has since confirmed the original order; do not rerun processing scripts on the completed order.
 
 `electronics_perf_lab` is an isolated test database holding 20,000 synthetic products for the selective price query. This avoids modifying the original case-study data.
 
