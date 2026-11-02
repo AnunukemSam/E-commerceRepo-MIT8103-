@@ -1,0 +1,54 @@
+erDiagram
+    CUSTOMERS ||--o{ ORDERS : places
+    CATEGORIES ||--o{ PRODUCTS : contains
+    ORDERS ||--|{ ORDER_ITEMS : includes
+    PRODUCTS ||--o{ ORDER_ITEMS : appears_in
+    ORDERS ||--o| PAYMENTS : has
+
+    CUSTOMERS {
+        int customer_id PK
+        varchar first_name
+        varchar last_name
+        varchar email UK
+        varchar phone
+    }
+
+    CATEGORIES {
+        int category_id PK
+        varchar category_name UK
+        text description
+    }
+
+    PRODUCTS {
+        int product_id PK
+        int category_id FK
+        varchar product_name
+        varchar sku UK
+        text description
+        numeric price
+        int stock_quantity
+    }
+
+    ORDERS {
+        int order_id PK
+        int customer_id FK
+        timestamp order_date
+        varchar status
+    }
+
+    ORDER_ITEMS {
+        int order_item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        numeric unit_price
+    }
+
+    PAYMENTS {
+        int payment_id PK
+        int order_id FK
+        numeric amount
+        varchar payment_method
+        varchar payment_status
+        timestamp payment_date
+    }
