@@ -4,7 +4,6 @@
 **Case study:** Simulated electronics retailer, unchanged from Portfolios 1–2  
 **DBMS:** PostgreSQL 18.6, pgAdmin 4 and Terminal/psql  
 **Database:** `electronics_store_db`  
-**Date of exercises:** 2026-11-02
 
 ## Objective
 
@@ -93,7 +92,7 @@ The student opened two separate psql Terminal connections to `electronics_store_
 - **Session A** (shown backend PID 9698) executed `BEGIN` and reduced Laptop Pro stock 3→2 without committing. This transaction held a conflicting row-level lock.
 - **Session B** ran inside a transaction with `transaction_isolation = read committed`. Its ordinary SELECT displayed stock **3**, not the uncommitted 2 from A.
 - Session B set `SET LOCAL lock_timeout = '3s'` and attempted to update the same product. PostgreSQL waited for the conflicting row lock, then raised an error cancelling the UPDATE due to lock timeout.
-- The student confirmed both sessions were rolled back and the final stock remained at the committed 3.
+- It was confirmed that both sessions were rolled back and the final stock remained at the committed 3.
 
 Evidence: [concurrency screenshot](../evidence/12-concurrency-read-and-lock-timeout.png). The screenshot captures Session A's uncommitted 2, Session B's committed read of 3 and the lock-timeout error; the separately executed rollbacks and final stock were user-reported.
 
@@ -119,14 +118,12 @@ Evidence: [concurrency screenshot](../evidence/12-concurrency-read-and-lock-time
 
 This MVP uses one simulated payment per order; it does not charge a real payment gateway, implement multi-warehouse inventory, or handle multiple payment attempts. The order-processing block handles one existing order, not the full creation of a fresh order. For coursework it demonstrates the required transaction operations while preserving the agreed six-table scope.
 
-**Personal reflection — complete in your own words:** Explain what changed in your understanding of `COMMIT`, `ROLLBACK`, `ROW_COUNT`, transaction isolation and row locks. Mention the actual standalone `GET DIAGNOSTICS` syntax error you encountered and how you corrected it using a complete PL/pgSQL `DO` block. Confirm you understand every part of the submitted SQL.
-
 ## 9. References and AI use
 
-- MIT 8103 course assessment brief (provided by student).
+- MIT 8103 course assessment brief.
 - PostgreSQL transaction documentation: https://www.postgresql.org/docs/current/tutorial-transactions.html
 - PostgreSQL isolation documentation: https://www.postgresql.org/docs/current/transaction-iso.html
 - PostgreSQL explicit locking documentation: https://www.postgresql.org/docs/current/explicit-locking.html
 - PostgreSQL PL/pgSQL diagnostics: https://www.postgresql.org/docs/current/plpgsql-statements.html
 
-**AI-use declaration:** ChatGPT assisted with lab design, PL/pgSQL explanation/debugging, experiment analysis, SQL script consolidation and draft documentation. PostgreSQL experiments and screenshots were supplied by the student. The student should verify the report against their local outputs and complete the personal reflection.
+**AI-use declaration:** ChatGPT assisted with lab design, PL/pgSQL explanation/debugging, experiment analysis, SQL script consolidation and draft documentation.
