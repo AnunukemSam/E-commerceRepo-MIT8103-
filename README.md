@@ -2,7 +2,6 @@
 
 **Assessment:** Individual Practical Database Portfolio · **2026/2027 First Semester**  
 **Case study:** Simulated electronics retailer — E-commerce and Inventory Management System  
-**Submission:** GitHub evidence repository + final 2–3 page LMS summary
 
 ## Case study and scope
 
@@ -14,11 +13,11 @@ There is no real customer-facing application or live payment processing.
 
 | Portfolio | Practical work | Repository |
 | --- | --- | --- |
-| 1. Database Design and Modelling (7 marks) | Six-table schema, ER model, constraints, normalisation, tests | [Portfolio 1](portfolio-1-database-design/) |
-| 2. Query Processing and Optimisation (7 marks) | Business SQL, EXPLAIN plans, ANALYZE/index analysis and benchmarking | [Portfolio 2](portfolio-2-query-optimisation/) |
-| 3. Transactions and Concurrency (7 marks) | COMMIT/ROLLBACK, validation, exception handling and concurrent row locking | [Portfolio 3](portfolio-3-transactions-concurrency/) |
-| 4. NoSQL and Advanced Data Models (7 marks) | MongoDB embedded order model, nested queries and CRUD | [Portfolio 4](portfolio-4-nosql/) |
-| 5. Distributed and Cloud Database Exercise (6 marks) | Local PostgreSQL physical streaming replication, consistency, read-only standby and monitoring | [Portfolio 5](portfolio-5-distributed-cloud/) |
+| 1. Database Design and Modelling | Six-table schema, ER model, constraints, normalisation, tests | [Portfolio 1](portfolio-1-database-design/) |
+| 2. Query Processing and Optimisation | Business SQL, EXPLAIN plans, ANALYZE/index analysis and benchmarking | [Portfolio 2](portfolio-2-query-optimisation/) |
+| 3. Transactions and Concurrency | COMMIT/ROLLBACK, validation, exception handling and concurrent row locking | [Portfolio 3](portfolio-3-transactions-concurrency/) |
+| 4. NoSQL and Advanced Data Models | MongoDB embedded order model, nested queries and CRUD | [Portfolio 4](portfolio-4-nosql/) |
+| 5. Distributed and Cloud Database Exercise | Local PostgreSQL physical streaming replication, consistency, read-only standby and monitoring | [Portfolio 5](portfolio-5-distributed-cloud/) |
 
 The individual folders contain code, evidence and documentation. The lab screenshots are original student-provided terminal or pgAdmin images, not generated recreations. Read each folder's evidence index for limits of what was captured.
 
@@ -29,10 +28,6 @@ The individual folders contain code, evidence and documentation. The lab screens
 - Write a **personal technical reflection** in their own words.
 - Prepare the required **2–3 page LMS summary** covering all five activities with a GitHub link and references.
 - Review AI-use disclosures, screenshots and repository access permissions.
-
-### Repository access
-
-**Public repository confirmed.** The lecturer has since updated the initial course brief: the GitHub portfolio should be **public**, so the assessor can open it directly. The repository is currently public. The older PDF's private-repository wording is superseded by this later instruction, as reported by the student.
 
 ## Integrity and safety
 
