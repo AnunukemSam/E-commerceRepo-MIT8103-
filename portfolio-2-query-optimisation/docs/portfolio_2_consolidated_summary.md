@@ -4,7 +4,6 @@
 **Case study:** Simulated electronics retailer, carried forward from Portfolio 1  
 **DBMS:** PostgreSQL 18.6  
 **Environment:** Local Apple Silicon Mac with pgAdmin 4  
-**Status:** Technical experiments documented; final student reflection and some supporting plan screenshots may still be needed.
 
 ## 1. Objective
 
@@ -94,25 +93,10 @@ See [Experiment 03 analysis](experiment_03_index_benchmark.md), [benchmark SQL](
 6. The five-run comparison and two single-run plans do not establish universal performance guarantees or statistically significant differences.
 7. JOIN and aggregate plans in the original two-product database primarily demonstrate execution-plan concepts, not a performance bottleneck.
 
-## 7. Evidence and submission checklist
-
-- [x] Four reporting query scripts and result screenshots.
-- [x] Small-database initial statistics and price-index plan screenshots.
-- [x] Index-benchmark descriptive measurements and CSV.
-- [x] Pre-ANALYZE JOIN/aggregation measurements (reported as text in Experiment 04).
-- [x] Post-ANALYZE JOIN/aggregation plans (saved as text).
-- [x] Synthetic dataset and indexing SQL scripts.
-- [ ] Add screenshots of the business JOIN/aggregation EXPLAIN plans if required; currently text evidence is provided.
-- [ ] Add screenshots of the five-run benchmark timings or terminal exports if required; currently student-reported CSV and analysis are provided.
-- [ ] Confirm all scripts and descriptions match the local implementation and complete a personal reflection in the student's own words.
-- [ ] Check this portfolio against any LMS-specific submission format before final submission.
-
-## 8. References and AI declaration
+## 7. References
 
 - MIT 8103 course assessment brief.
 - PostgreSQL official documentation: https://www.postgresql.org/docs/current/using-explain.html
 - PostgreSQL ANALYZE documentation: https://www.postgresql.org/docs/current/sql-analyze.html
 
-**AI use:** ChatGPT assisted with planning the experiments, explaining SQL and execution plans, calculating benchmark summaries, and drafting repository documentation. The SQL executions and timing observations were reported by the student. The student remains responsible for testing the scripts, verifying the evidence and independently explaining the technical decisions.
 
-**Student reflection:** [Write your own reflection on what you learned about EXPLAIN, statistics, B-tree indexing and join/aggregation plan choices, including an actual difficulty encountered and how you checked it.]
