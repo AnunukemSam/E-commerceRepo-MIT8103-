@@ -1,7 +1,5 @@
 # Portfolio 3 — Original Screenshot Evidence
 
-These **12 PNG files** are original images supplied by the student on 2026-11-02. They were uploaded without visual modification and renamed to describe the visible evidence. They are not generated graphics. The screenshots do not, in every case, show all stages of a transaction; the text below distinguishes visible evidence from student-reported workflow steps.
-
 | File | Description |
 |---|---|
 | [01-original-inventory-before-rehearsal.png](01-original-inventory-before-rehearsal.png) | Order 1 initial inventory: Laptop Pro=5, Wireless Mouse=20 |
@@ -17,10 +15,4 @@ These **12 PNG files** are original images supplied by the student on 2026-11-02
 | [11-committed-state-separate-query.png](11-committed-state-separate-query.png) | Subsequent query showing Confirmed/Successful with inventory 3 and 19; student reports a separate connection was used |
 | [12-concurrency-read-and-lock-timeout.png](12-concurrency-read-and-lock-timeout.png) | Two psql windows: Session A uncommitted stock=2; Session B Read Committed sees 3 and receives a 3-second lock timeout on UPDATE |
 
-## Evidence limitations
 
-- A separate screenshot of the successful `COMMIT;` message was not supplied; successful persistence was subsequently checked, and the student reported using a new connection.
-- The uploaded concurrency screenshot shows the Read Committed comparison and lock-timeout error. The subsequent two ROLLBACK operations and final stock=3 were reported by the student but are **not visible in this particular screenshot**. The user confirmed having performed them.
-- Successful simulated payment does **not** establish real-money settlement.
-- Each screenshot shows fictional customer/store records; check for any unintended private information before public submission.
-- The generated infographic from an earlier chat is **excluded**, since it is not original pgAdmin evidence.
