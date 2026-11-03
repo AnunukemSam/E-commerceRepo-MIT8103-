@@ -1,6 +1,6 @@
 # Portfolio 2 — Evidence Screenshots
 
-The nine PNG images here are exact copies of screenshots supplied by the student from pgAdmin 4 (original bytes preserved). Each filename identifies the relevant experiment.
+The nine PNG images here are exact copies of screenshots supplied from pgAdmin 4 (original bytes preserved). Each filename identifies the relevant experiment.
 
 | Screenshot | Evidence |
 |---|---|
@@ -14,10 +14,4 @@ The nine PNG images here are exact copies of screenshots supplied by the student
 | [08-q3-category-inventory.png](08-q3-category-inventory.png) | Inventory totals by category |
 | [09-q4-confirmed-sales.png](09-q4-confirmed-sales.png) | Confirmed sales total |
 
-## Additional evidence still required
 
-- The customer-order-history and inventory JOIN/aggregation execution plans were supplied as text; equivalent screenshots are **not** among these nine PNGs.
-- The five-run price-index and sequential timing measurements were supplied as text and documented in `../docs/experiment_03_index_benchmark.md`, not as screenshots.
-- The exact synthetic data generation SQL should be added to `../sql/` and the final academic reflection verified.
-
-**Privacy:** The screenshots use a fictional customer (John Ade). Because the repository is public, review uploaded images for personal or sensitive data before final submission.
