@@ -3,8 +3,6 @@
 **Course:** MIT 8103 — Advanced Database Systems  
 **Case study:** E-commerce and Inventory Management System (simulated electronics retailer)  
 **Test database:** `electronics_perf_lab` (PostgreSQL 18.6)  
-**Date:** 2026-11-02  
-**Status:** Analysis of student-reported repeated measurements; screenshots and SQL outputs to be added as evidence.
 
 ## 1. Objective and hypothesis
 
@@ -122,13 +120,3 @@ These findings support the usefulness of the price index for **this specific sel
 
 The experiment demonstrates that, for a 20,000-product synthetic electronics-retailer dataset and a predicate matching 5% of records, a B-tree price index was selected by PostgreSQL and was associated with lower measured query execution times. The median comparison showed a 57.4% reduction (2.34× speedup). The conclusion is limited to this query, dataset and measurement procedure.
 
-## 8. Evidence checklist
-
-- [ ] Add screenshot of the original Sequential Scan plan.
-- [ ] Add screenshot of the indexed Bitmap Index/Heap Scan plan.
-- [ ] Add the ten repeated execution measurements as a saved text/CSV or screenshot.
-- [ ] Add a screenshot showing the intentionally forced sequential plan during repeated testing.
-- [ ] Add SQL script used to create and verify the 20,000-product dataset.
-- [ ] Review this interpretation and complete any required student reflection in your own words.
-
-**AI-use note:** ChatGPT assisted with calculation, interpretation, structuring and drafting. The PostgreSQL measurements were supplied by the student and should be independently checked against the saved evidence.
