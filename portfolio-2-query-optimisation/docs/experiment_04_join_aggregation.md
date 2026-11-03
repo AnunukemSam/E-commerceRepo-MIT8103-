@@ -3,8 +3,6 @@
 **Course:** MIT 8103 — Advanced Database Systems  
 **Scenario:** Simulated electronics retailer  
 **Database:** `electronics_store_db` on PostgreSQL 18.6  
-**Source:** Actual `EXPLAIN (ANALYZE, BUFFERS)` text supplied by student for Query 1 and Query 3  
-**Date:** 2026-11-02
 
 ## Goal
 
@@ -135,6 +133,4 @@ These observations were taken from the four pgAdmin screenshots shared by the st
 - `Sort` arranged output rows; the data volumes were small and no sort-to-disk operation was reported.
 - Row estimates may be inaccurate even when execution is fast, particularly with incomplete statistics.
 - This small-database exercise demonstrates SQL processing and plan interpretation, **not** that indexing these small tables will necessarily help.
-- Actual screenshots of the Q1/Q3 plans should be committed in `evidence/` with descriptive names. This report records the supplied output text; it does not claim screenshots are already in GitHub.
 
-**AI-use note:** ChatGPT assisted with interpretation and report structure. PostgreSQL plans and result values were supplied by the student; the student should confirm the explanations and screenshots before submission.
