@@ -2,7 +2,6 @@
 
 **Case study:** Simulated electronics retailer (same six-table schema as Portfolio 1).  
 **DBMS:** PostgreSQL 18.6  
-**Status:** Technical exercises documented. Final student reflection and optional additional plan screenshots remain for submission review.
 
 ## Start here
 
@@ -31,17 +30,5 @@
 - Refreshing statistics in the original database corrected grossly overestimated cardinalities for two reporting queries (1,360→2 and 280→2 estimated rows; both returned 2 actual rows) and changed the join and aggregation strategies.
 - Five-run measurements and isolated single-run timings do not establish universal gains. Index maintenance cost and query selectivity remain important trade-offs.
 
-## Evidence and submission readiness
-
-- [x] Business query SQL and genuine screenshots.
-- [x] Synthetic data and benchmark SQL documented.
-- [x] Price index execution-plan screenshots.
-- [x] Five-run measurements saved as CSV and analysed.
-- [x] Pre/post statistics-refresh plan interpretation and post-refresh text evidence.
-- [ ] Optional or lecturer-required screenshots of Query 1 and Query 3 plans (currently text evidence).
-- [ ] Additional individual run screenshots or raw log export if requested.
-- [ ] Student's own reflection, verify accuracy and review LMS formatting.
-
-**AI-use statement:** ChatGPT assisted with explanation, experiment design, analysis and documentation; the student supplied query outputs and measurements. Verify against the local PostgreSQL environment before final assessment.
 
 **Repository is public:** Do not include passwords, account credentials or real customer data.
