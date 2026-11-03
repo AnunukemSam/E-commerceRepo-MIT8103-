@@ -1,6 +1,5 @@
 # Portfolio 5 — Distributed and Cloud Database Exercise
 
-**MIT 8103 Advanced Database Systems** · **6 marks**  
 **Case study:** Simulated electronics retailer / E-commerce and Inventory Management System  
 **Database engine:** PostgreSQL 18.6 (Homebrew, Apple Silicon Mac)  
 **Practical approach:** Local primary–standby **physical streaming replication**.
@@ -46,15 +45,4 @@ This exercise demonstrates that data committed on a PostgreSQL primary can be re
 - No separate physical server, cloud deployment, automatic failover, sharding or disaster recovery test is claimed.
 - No persistent replication slot was configured in this exercise; a long standby outage can require additional recovery/reinitialisation if needed WAL is recycled.
 
-## Completion
 
-- [x] Physical replication architecture explained.
-- [x] Two PostgreSQL instances configured.
-- [x] Live asynchronous WAL streaming confirmed.
-- [x] Actual primary write observed on standby.
-- [x] Standby read-only restrictions tested.
-- [x] Replica monitoring and lag example recorded.
-- [x] Original screenshots and scripts committed to GitHub.
-- [ ] Student's own technical reflection, final rubric review and LMS summary still required.
-
-**Academic integrity:** ChatGPT helped explain, troubleshoot and organise the portfolio. Local commands and original screenshots were supplied by the student; the student should verify and be prepared to explain this work.
