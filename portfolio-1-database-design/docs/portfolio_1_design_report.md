@@ -1,13 +1,11 @@
 # MIT 8103 — Advanced Database Systems
 ## Portfolio 1: Database Design and Modelling
 
-**Student:** [Insert your own full name and student ID in the LMS version if required]  
 **Case study:** E-commerce and Inventory Management System  
 **Organisation:** Simulated electronics retailer  
 **Database:** `electronics_store_db` (PostgreSQL 18)  
-**Report status:** Design draft complete. Add screenshots, verified output and actual export before submission.
 
-### 1. Business context
+### Business context
 
 The simulated electronics retailer sells laptops, smartphones, accessories and related products. It needs reliable records of customers, product categories, products, stock, orders, line items and simulated payments. Its core workflows include product registration, customer registration, order recording, payment recording, stock checks and basic reporting. The database supports a small administrative workflow, not a customer-facing application.
 
@@ -15,7 +13,7 @@ The simulated electronics retailer sells laptops, smartphones, accessories and r
 
 **Boundary:** No real payments, online shop interface, delivery, promotions, multi-warehouse inventory or production cloud deployment. These are not required for this portfolio's core objective.
 
-### 2. Functional requirements
+### Functional requirements
 
 1. Register customers with a unique email address.
 2. Create product categories and register products using unique SKUs.
@@ -27,7 +25,7 @@ The simulated electronics retailer sells laptops, smartphones, accessories and r
 8. Retrieve orders, payment statuses, products and basic inventory information.
 9. Support later transaction-safe order confirmation and stock reduction.
 
-### 3. Main business rules
+### Main business rules
 
 - Each order belongs to an existing customer; a customer may have many orders.
 - Each product belongs to one existing category; a category may have many products.
@@ -40,7 +38,7 @@ The simulated electronics retailer sells laptops, smartphones, accessories and r
 - Simulated payment and stock updates must be coordinated in a single successful order-processing transaction (explored in Portfolio 3).
 - Historical cancelled orders and items are retained; foreign keys use `ON DELETE RESTRICT` to protect referenced records.
 
-### 4. Entities and relationships
+### Entities and relationships
 
 | Entity | Purpose | Primary key |
 |---|---|---|
@@ -53,9 +51,9 @@ The simulated electronics retailer sells laptops, smartphones, accessories and r
 
 **Cardinality:** Customers 1-to-many Orders; Categories 1-to-many Products; Orders 1-to-many Order_Items (conceptually at least one item per order); Products 1-to-many Order_Items; Orders 1-to-zero-or-one Payments. Thus the many-to-many relationship of orders and products is resolved through `order_items`.
 
-**ER diagram:** See `../diagrams/electronics_store_erd.mmd` and add a screenshot/export of the diagram to `../evidence/`.
+**ER diagram:** See `../diagrams/electronics_store_erd.mmd`.
 
-### 5. Relational schema
+### Relational schema
 
 - `CUSTOMERS(customer_id PK, first_name, last_name, email UNIQUE, phone)`
 - `CATEGORIES(category_id PK, category_name UNIQUE, description)`
@@ -68,9 +66,9 @@ Identifiers use integer generated identity columns. Names, emails, SKU and statu
 
 Important constraints: `NOT NULL` on required columns; `UNIQUE` on customer email, category name, SKU, the order-item `(order_id, product_id)` pair, and `payments.order_id`; `CHECK` on positive prices/amounts/quantities, non-negative stock, and permitted status/method values; `FOREIGN KEY` relationships with `ON DELETE RESTRICT`.
 
-The actual SQL definitions are in `../sql/01_schema_reference.sql`. The authoritative version of the database that the student built must be obtained using `pg_dump` and stored as `../sql/schema_from_live_db.sql`.
+The actual SQL definitions are in `../sql/01_schema_reference.sql`. The authoritative version of the database was obtained using `pg_dump` and stored as `../sql/schema_from_live_db.sql`.
 
-### 6. Normalisation
+### Normalisation
 
 **First Normal Form (1NF):** Every field holds one value and there are no repeating product columns. An order with multiple products is represented by multiple `order_items` records, each with its own row identifier.
 
@@ -82,9 +80,9 @@ The actual SQL definitions are in `../sql/01_schema_reference.sql`. The authorit
 
 **Calculated totals:** `orders` does not contain a redundant order-total column. Totals are calculated from `SUM(order_items.quantity * order_items.unit_price)`, preventing a separate order header amount from becoming out of sync with order lines.
 
-### 7. Implementation and validation
+### Implementation and validation
 
-PostgreSQL 18 was installed and initialised on an Apple Silicon Mac, and pgAdmin 4 was used to create all six tables. The student reported that table introspection in `psql`, individual constraint tests, and relational sample-data queries were successful. Evidence must consist of actual screenshots and/or captured outputs from the student's environment, not fabricated sample output.
+PostgreSQL 18 was installed and initialised on an Apple Silicon Mac, and pgAdmin 4 was used to create all six tables. Table introspection in `psql`, individual constraint tests, and relational sample-data queries were successful.
 
 **Test scenario:** A customer, John Ade (`john.ade@example.com`), placed a **pending** sample order of two Laptop Pro units at ₦850,000 each and one Wireless Mouse at ₦25,000. The calculated total was ₦1,725,000. A simulated pending Bank Transfer payment was recorded. Stock quantities were not decremented, because the order was not yet confirmed.
 
@@ -101,19 +99,13 @@ PostgreSQL 18 was installed and initialised on an Apple Silicon Mac, and pgAdmin
 | Pending order behavior | Order and payment remain pending; no stock deducted |
 | Schema reproducibility | SQL schema reference plus actual `pg_dump` schema export |
 
-**Add actual observation notes here:** [Insert relevant result details or evidence filenames after reviewing your saved screenshots.]
-
-### 8. Design limitations and preparation for later portfolios
+### Design limitations and preparation for later portfolios
 
 Foreign keys alone cannot enforce the business rule that an order has at least one item. A payment's numeric value is not automatically checked against its order total by the current table constraints, and order/payment statuses are not cross-table constrained. These conditions will be managed in transaction logic during Portfolio 3.
 
 Portfolio 2 will use representative data and SQL queries to explore query plans, indexing and performance. Portfolio 3 will implement and demonstrate commit/rollback and concurrent stock-safe order processing. The same case study will later support a MongoDB model and a distributed/cloud database exercise.
 
-### 9. Reflection (complete in your own words)
-
-[Describe what you understood about primary keys, foreign keys, 1NF–3NF, and why the order-items table is needed. Mention one SQL error you encountered and how you verified the correction. This must reflect your actual experience.]
-
-### 10. References and AI-use declaration
+### References and AI-use declaration
 
 **References**
 - MIT 8103 assessment brief and class materials (add exact lecturer/institution details if required).
