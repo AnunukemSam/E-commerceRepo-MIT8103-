@@ -1,6 +1,5 @@
 # Original MongoDB Screenshot Evidence
 
-All four images were provided by the student on 2 November 2026. They are original, unmodified Terminal screenshots.
 
 | File | Observable evidence |
 | --- | --- |
@@ -9,6 +8,4 @@ All four images were provided by the student on 2 November 2026. They are origin
 | [03-update-payment-method.png](03-update-payment-method.png) | updateOne on order #2 returned matchedCount: 1 and modifiedCount: 1. The projected document confirms the nested payment.method changed to Bank Transfer while order and payment status remained Pending. |
 | [04-insert-pending-order.png](04-insert-pending-order.png) | Order #2 inserted with acknowledged: true and insertedId: 2. A subsequent findOne displays the initial Card payment method, pending statuses, one Wireless Mouse, and Decimal128('25000.00'). |
 
-**Evidence provenance and limits:** Earlier steps—installation/ping, initial insertion of order #1, and read queries A–D—were verified in chat from the student's copied Terminal output, but original screenshot files for these steps were not supplied. This folder does **not** claim to contain images of those earlier steps. Please capture additional original evidence if your lecturer requires screenshots of each operation.
 
-The PNGs were not generated or reconstructed from text.
