@@ -45,22 +45,5 @@ Or open the same file using pgAdmin Query Tool. Confirm the results, then add yo
 
 ## 3. ER diagram source
 
-Open `diagrams/electronics_store_erd.mmd` in a Mermaid-compatible preview/editor, or copy the contents into a fenced `mermaid` block in a Markdown viewer that supports it. The diagram source is already present in the repository; the existing screenshots and evidence index should be reviewed before submission.
+Open `diagrams/electronics_store_erd.mmd` in a Mermaid-compatible preview/editor, or copy the contents into a fenced `mermaid` block in a Markdown viewer that supports it. The diagram source is already present in the repository.
 
-## 4. Verify portfolio completion
-
-- [x] Requirements, case study and business rules drafted.
-- [x] Six-table ER diagram and relational schemas designed.
-- [x] Normalisation to 3NF explained.
-- [x] PostgreSQL and pgAdmin installed; all six tables created and tested (per student's reported work).
-- [x] Fictional sample order, payment and JOIN validation completed (per student's reported work).
-- [x] Live schema exported and committed; final student review advised.
-- [x] Six genuine evidence screenshots included and indexed.
-- [ ] Personal reflection to be completed in student's own words.
-- [x] Files committed to the existing public GitHub repository.
-
-## 5. GitHub
-
-Use the existing **public** repository `AnunukemSam/E-commerceRepo-MIT8103-`, as instructed by your lecturer. Put this portfolio folder at the repository root. You can add `portfolio-2-query-optimisation/`, `portfolio-3-transactions-concurrency/`, `portfolio-4-nosql/`, `portfolio-5-distributed-cloud/` and final documentation as those pieces are completed. Commit as you make progress rather than submitting a single untraceable final upload.
-
-Do not publish passwords, actual personal information, internal institutional credentials or private tokens. Confirm any assessor access requirements in the module's assignment instructions.
