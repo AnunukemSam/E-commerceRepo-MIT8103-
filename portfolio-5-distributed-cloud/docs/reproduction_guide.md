@@ -1,6 +1,6 @@
 # Portfolio 5 — Reproduction and Troubleshooting Guide
 
-This guide records **what the student actually used** to implement the local replication lab on 2 November 2026. It is an archive for explanation and demonstration, **not** a one-click deployment procedure. Do not blindly rerun the setup against an existing primary/standby.
+This guide records **what the student actually used** to implement the local replication lab. It is an archive for explanation and demonstration, **not** a one-click deployment procedure. Do not blindly rerun the setup against an existing primary/standby.
 
 ## 1. Inspect primary (read-only checks)
 
