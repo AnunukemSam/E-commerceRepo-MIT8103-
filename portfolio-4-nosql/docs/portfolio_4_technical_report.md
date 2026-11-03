@@ -2,7 +2,6 @@
 
 **Course:** MIT 8103 Advanced Database Systems  
 **Case study:** Simulated electronics retailer / E-commerce and Inventory Management System  
-**Date:** 2 November 2026  
 **NoSQL DBMS:** MongoDB Community Edition 8.0.34 with mongosh 2.14.1 (Apple Silicon M1 Mac, local service)
 
 ## 1. Objective
@@ -126,13 +125,7 @@ These are fictional educational records; no actual payment was made.
 
 **Design decision:** Keep the PostgreSQL relational model as the primary choice for the core stock/order/payment workflow in this coursework. The MongoDB model illustrates a useful read-oriented approach for complete order documents, but one document fetch is not inherently proof of superior performance. No head-to-head benchmark was run.
 
-## 10. Reflections and evaluation
-
-**Student reflection (complete in your own words):** Explain what surprised you about embedded documents, what dot notation and \`$elemMatch\` helped you understand, why \`modifiedCount\` matters, and how choosing a document model changes consistency decisions. Reflect on what you would do differently for real inventory control.
-
-**Limitations:** The exercises use two fictional orders, a standalone local database and basic CRUD. No production authentication, database replication, sharding, performance benchmark or multi-document concurrency experiment was performed. None is claimed.
-
-## 11. References and AI-use declaration
+## 10. References and AI-use declaration
 
 - MongoDB documentation: https://www.mongodb.com/docs/manual/core/data-model-design/
 - MongoDB CRUD operations: https://www.mongodb.com/docs/manual/crud/
