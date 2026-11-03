@@ -1,9 +1,7 @@
 # Portfolio 5 — Technical Report: PostgreSQL Streaming Replication
 
 **Module:** MIT 8103 Advanced Database Systems  
-**Portfolio value:** 6 marks  
 **Case study:** Fictional electronics retailer: E-commerce and Inventory Management System  
-**Date of test:** 2 November 2026  
 **DBMS:** PostgreSQL 18.6, Homebrew installation on Apple Silicon M1 Mac  
 **Topic:** Distributed/cloud databases — hands-on replication and consistency, with availability and sharding analysis.
 
@@ -165,8 +163,6 @@ There were no cloud charges and no public network exposure as part of the experi
 
 The student successfully implemented a second local PostgreSQL instance, configured physical asynchronous streaming replication, verified matching primary/standby results, and showed that a standby rejects writes. The exercise connects replication technology to a realistic retail requirement: separating operational writes from read-only reporting.
 
-**Personal reflection — to be completed by the student in their own words:** Discuss what you understood about WAL after observing the two PostgreSQL instances; how you investigated the locale error; what the zero-byte lag observation does and does not mean; why a same-device standby cannot offer independent disaster recovery; and why you would or would not choose asynchronous replication for order reporting.
-
 ## 10. References and AI-use disclosure
 
 - PostgreSQL Documentation, Warm Standby and Streaming Replication: https://www.postgresql.org/docs/18/warm-standby.html
@@ -174,4 +170,4 @@ The student successfully implemented a second local PostgreSQL instance, configu
 - PostgreSQL Documentation, Streaming Replication Statistics: https://www.postgresql.org/docs/18/monitoring-stats.html
 - PostgreSQL Documentation, Client Authentication: https://www.postgresql.org/docs/18/auth-pg-hba-conf.html
 
-**AI use:** ChatGPT helped plan the lab, explain PostgreSQL concepts, diagnose startup logs, interpret user-provided command outputs, and draft the repository documentation. The PostgreSQL commands were run on the student's own Mac and the screenshots were supplied by the student. The student should personally review the report and provide their own reflection before submission.
+**AI use:** ChatGPT helped plan the lab, explain PostgreSQL concepts, diagnose startup logs, interpret user-provided command outputs, and draft the repository documentation. The PostgreSQL commands were run on the student's own Mac and the screenshots were supplied by the student.
